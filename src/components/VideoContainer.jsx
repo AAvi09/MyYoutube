@@ -1,12 +1,24 @@
-import React from "react";
 import { Link } from "react-router-dom";
 
+import { useSelector } from "react-redux";
+import VideoCard from "./VideoCard";
+
 const VideoContainer = () => {
+  const videoData = useSelector(
+    (store) => store.youtubeVideo?.nowPlayingVideos
+  );
+  if (!videoData) {
+    return <p>Loading videos...</p>; // Handle null or empty state
+  }
+  console.log(videoData);
+
   return (
-    <div>
-      <Link to="/watch">
-        <h1>VideoContainer</h1>
-      </Link>
+    <div className="grid grid-cols-3 gap-4">
+      {videoData.map((video, index) => (
+        <Link to="/watch" key={index}>
+          <VideoCard video={video} />
+        </Link>
+      ))}
     </div>
   );
 };

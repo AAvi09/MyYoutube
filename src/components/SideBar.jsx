@@ -6,7 +6,7 @@ const SideBar = () => {
 
   if (!showSideBar)
     return (
-      <div className="w-10 p-2 m-2 shadow-xl">
+      <div className="w-10 h-56 p-2 m-2 shadow-xl fixed">
         <div className="text-black font-medium ">
           <ul className="space-y-2">
             <li>🏡</li>
