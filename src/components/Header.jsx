@@ -7,11 +7,16 @@ import {
 } from "../utils/constants";
 import { useDispatch } from "react-redux";
 import { toggleSideBar } from "../utils/sideBarSlice";
+import { toggleUserInfoBar } from "../utils/userInfoSlice";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   const dispatch = useDispatch();
   const handleSideBarToggle = () => {
     dispatch(toggleSideBar());
+  };
+  const toggleUserInfoBarHandle = () => {
+    dispatch(toggleUserInfoBar());
   };
   return (
     <div className="grid grid-flow-col p-2 m-2 shadow-lg">
@@ -22,11 +27,13 @@ const Header = () => {
           className="h-8 w-6 cursor-pointer"
           onClick={() => handleSideBarToggle()}
         />
-        <img
-          alt="youtube-logo"
-          src={YOUTUBE_LOGO}
-          className="h-8  mx-4 cursor-pointer"
-        />
+        <Link to="/">
+          <img
+            alt="youtube-logo"
+            src={YOUTUBE_LOGO}
+            className="h-8  mx-4 cursor-pointer"
+          />
+        </Link>
       </div>
       <div className="flex col-span-10 p-2 text-center justify-center">
         <input
@@ -51,6 +58,7 @@ const Header = () => {
           alt="user"
           src={USER_LOGO}
           className="h-8 bg-zinc-700 rounded-full cursor-pointer"
+          onClick={() => toggleUserInfoBarHandle()}
         />
       </div>
     </div>
