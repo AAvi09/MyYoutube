@@ -31,7 +31,7 @@ const Header = () => {
           <img
             alt="youtube-logo"
             src={YOUTUBE_LOGO}
-            className="h-8  mx-4 cursor-pointer"
+            className="h-10  mx-4 cursor-pointer"
           />
         </Link>
       </div>
